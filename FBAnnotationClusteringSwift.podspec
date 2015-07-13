@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'FBAnnotationClusteringSwift'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'Clustering library for iOS maps'
   s.homepage         = 'https://github.com/ribl/FBAnnotationClusteringSwift'
   s.screenshots      = 'https://raw.githubusercontent.com/ribl/FBAnnotationClusteringSwift/master/GitHubImages/simulatorShot.png'
