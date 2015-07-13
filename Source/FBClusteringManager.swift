@@ -13,24 +13,24 @@ protocol FBClusteringManagerDelegate {
     func cellSizeFactorForCoordinator(coordinator:FBClusteringManager) -> CGFloat
 }
 
-class FBClusteringManager : NSObject {
+public class FBClusteringManager : NSObject {
     var delegate:FBClusteringManagerDelegate? = .None
     var tree:FBQuadTree? = .None
     var lock:NSRecursiveLock = NSRecursiveLock()
     let cellSize: Int?
     
-    init(clusteringCellSize: Int? = .None){
+    public init(clusteringCellSize: Int? = .None){
         cellSize = clusteringCellSize
         
         super.init()
     }
     
-    func setAnnotations(annotations:[MKAnnotation]){
+    public func setAnnotations(annotations:[MKAnnotation]){
         tree = nil
         addAnnotations(annotations)
     }
     
-    func addAnnotations(annotations:[MKAnnotation]){
+    public func addAnnotations(annotations:[MKAnnotation]){
         if tree == nil {
             tree = FBQuadTree()
         }
@@ -42,7 +42,7 @@ class FBClusteringManager : NSObject {
         lock.unlock()
     }
     
-    func clusteredAnnotationsWithinMapRect(rect:MKMapRect, withZoomScale zoomScale:Double) -> [MKAnnotation]{
+    public func clusteredAnnotationsWithinMapRect(rect:MKMapRect, withZoomScale zoomScale:Double) -> [MKAnnotation]{
         let clusterCellSize = cellSize ?? FBClusteringManager.FBCellSizeForZoomScale(MKZoomScale(zoomScale))
         
 //        if delegate?.respondsToSelector("cellSizeFactorForCoordinator:") {
@@ -111,7 +111,7 @@ class FBClusteringManager : NSObject {
         return clusteredAnnotations
     }
     
-    func allAnnotations() -> [MKAnnotation] {
+    public func allAnnotations() -> [MKAnnotation] {
         var annotations = [MKAnnotation]()
         
         lock.lock()
@@ -123,7 +123,7 @@ class FBClusteringManager : NSObject {
         return annotations
     }
     
-    func displayAnnotations(annotations: [MKAnnotation], onMapView mapView:MKMapView){
+    public func displayAnnotations(annotations: [MKAnnotation], onMapView mapView:MKMapView){
         
         dispatch_async(dispatch_get_main_queue())  {
 

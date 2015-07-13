@@ -15,14 +15,14 @@ enum FBClusterTypesImage: String {
     case Large  = "clusterLarge"
 }
 
-class FBAnnotationClusterView : MKAnnotationView {
+public class FBAnnotationClusterView : MKAnnotationView {
     var count = 0
     var fontSize:CGFloat = 12
     var imageName = "clusterSmall"
     var borderWidth:CGFloat = 3
     var countLabel:UILabel? = nil
     
-    override init!(annotation: MKAnnotation!, reuseIdentifier: String!){
+    override public init!(annotation: MKAnnotation!, reuseIdentifier: String!){
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         
         let cluster:FBAnnotationCluster = annotation as! FBAnnotationCluster
@@ -51,12 +51,12 @@ class FBAnnotationClusterView : MKAnnotationView {
         setTheCount(count)
     }
     
-    required override init(frame: CGRect) {
+    required override public init(frame: CGRect) {
         super.init(frame: frame)
         
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -85,7 +85,7 @@ class FBAnnotationClusterView : MKAnnotationView {
         setNeedsLayout()
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         
         // Images are faster than using drawRect:
         var imageAsset = UIImage(named: imageName)!
