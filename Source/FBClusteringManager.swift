@@ -13,7 +13,7 @@ protocol FBClusteringManagerDelegate {
     func cellSizeFactorForCoordinator(coordinator:FBClusteringManager) -> CGFloat
 }
 
-public class FBClusteringManager : NSObject {
+public class FBClusteringManager {
     var delegate:FBClusteringManagerDelegate? = .None
     var tree:FBQuadTree? = .None
     var lock:NSRecursiveLock = NSRecursiveLock()
@@ -21,8 +21,6 @@ public class FBClusteringManager : NSObject {
     
     public init(clusteringCellSize: Int? = .None){
         cellSize = clusteringCellSize
-        
-        super.init()
     }
     
     public func setAnnotations(annotations:[MKAnnotation]){

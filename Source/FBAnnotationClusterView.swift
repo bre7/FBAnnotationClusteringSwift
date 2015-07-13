@@ -18,7 +18,7 @@ enum FBClusterTypesImage: String {
 public class FBAnnotationClusterView : MKAnnotationView {
     var count = 0
     var fontSize:CGFloat = 12
-    var imageName = "clusterSmall"
+    var imageName = FBClusterTypesImage.Small.rawValue
     var borderWidth:CGFloat = 3
     var countLabel:UILabel? = nil
     
