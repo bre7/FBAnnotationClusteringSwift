@@ -95,7 +95,9 @@ public class FBClusteringManager {
                     cluster.coordinate = coordinate
                     cluster.annotations = annotations
                     
-//                    println("cluster.annotations.count:: \(cluster.annotations.count)")
+                    #if DEBUG
+                        println("cluster.annotations.count:: \(cluster.annotations.count)")
+                    #endif
                     
                     clusteredAnnotations.append(cluster)
                 }
@@ -153,8 +155,11 @@ public class FBClusteringManager {
     
     class func FBCellSizeForZoomScale(zoomScale:MKZoomScale) -> Int {
         let zoomLevel:Int = FBClusteringManager.FBZoomScaleToZoomLevel(zoomScale)
-        println("FBCellSizeForZoomScale: \(zoomLevel)")
         
+        #if DEBUG
+		println("FBCellSizeForZoomScale: \(zoomLevel)")
+        #endif
+
         switch zoomLevel {
         case 12:
             return 96
