@@ -9,16 +9,17 @@
 import Foundation
 import MapKit
 
+enum FBClusterTypesImage: String {
+    case Small  = "clusterSmall"
+    case Medium = "clusterMedium"
+    case Large  = "clusterLarge"
+}
+
 class FBAnnotationClusterView : MKAnnotationView {
-    
     var count = 0
-    
     var fontSize:CGFloat = 12
-    
     var imageName = "clusterSmall"
-    
     var borderWidth:CGFloat = 3
-    
     var countLabel:UILabel? = nil
     
     override init!(annotation: MKAnnotation!, reuseIdentifier: String!){
@@ -27,23 +28,22 @@ class FBAnnotationClusterView : MKAnnotationView {
         let cluster:FBAnnotationCluster = annotation as! FBAnnotationCluster
         count = cluster.annotations.count
         
+        let baseFontSize:CGFloat = 12
+        let baseBorderWidth:CGFloat = 3
         // change the size of the cluster image based on number of stories
         switch count {
         case 0...5:
-            fontSize = 12
-            imageName = "clusterSmall"
-            borderWidth = 3
-            
+            fontSize = baseFontSize
+            imageName = FBClusterTypesImage.Small.rawValue
+            borderWidth = baseBorderWidth
         case 6...15:
-            fontSize = 13
-            imageName = "clusterMedium"
-            borderWidth = 4
-            
+            fontSize = baseFontSize + 1
+            imageName = FBClusterTypesImage.Medium.rawValue
+            borderWidth = baseBorderWidth + 1
         default:
-            fontSize = 14
-            imageName = "clusterLarge"
-            borderWidth = 5
-            
+            fontSize = baseFontSize + 2
+            imageName = FBClusterTypesImage.Large.rawValue
+            borderWidth = baseBorderWidth + 2
         }
         
         backgroundColor = UIColor.clearColor()
