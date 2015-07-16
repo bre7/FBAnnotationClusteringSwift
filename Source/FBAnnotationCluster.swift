@@ -12,7 +12,7 @@ import MapKit
 public class FBAnnotationCluster : NSObject {
     public var coordinate = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     
-    public var title:String = ""
+    public var title:String? = ""
     public var subtitle:String? = nil
     
     public var annotations:[MKAnnotation] = []
