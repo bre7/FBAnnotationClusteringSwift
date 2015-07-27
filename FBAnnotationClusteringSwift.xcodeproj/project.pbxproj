@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		240696F31B534E6400ED7DF8 /* Source in Resources */ = {isa = PBXBuildFile; fileRef = 240696F21B534E6400ED7DF8 /* Source */; };
+		24427B831B669A8D007A23AF /* Source in Resources */ = {isa = PBXBuildFile; fileRef = 24427B821B669A8D007A23AF /* Source */; };
 		FC59A7E61ACD99BE009EFA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC59A7E51ACD99BE009EFA30 /* AppDelegate.swift */; };
 		FC59A7E81ACD99BE009EFA30 /* FBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC59A7E71ACD99BE009EFA30 /* FBViewController.swift */; };
 		FC59A7EB1ACD99BE009EFA30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC59A7E91ACD99BE009EFA30 /* Main.storyboard */; };
@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		240696F21B534E6400ED7DF8 /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Source; sourceTree = SOURCE_ROOT; };
+		24427B821B669A8D007A23AF /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Source; sourceTree = SOURCE_ROOT; };
 		FC59A7E01ACD99BE009EFA30 /* FBAnnotationClusteringSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBAnnotationClusteringSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC59A7E41ACD99BE009EFA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC59A7E51ACD99BE009EFA30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		FC59A7E21ACD99BE009EFA30 /* FBAnnotationClusteringSwift */ = {
 			isa = PBXGroup;
 			children = (
-				240696F21B534E6400ED7DF8 /* Source */,
+				24427B821B669A8D007A23AF /* Source */,
 				FC59A7E51ACD99BE009EFA30 /* AppDelegate.swift */,
 				FC59A7E71ACD99BE009EFA30 /* FBViewController.swift */,
 				FC59A7E91ACD99BE009EFA30 /* Main.storyboard */,
@@ -201,7 +201,7 @@
 				FC59A7EB1ACD99BE009EFA30 /* Main.storyboard in Resources */,
 				FC59A7F01ACD99BE009EFA30 /* LaunchScreen.xib in Resources */,
 				FC59A7ED1ACD99BE009EFA30 /* Images.xcassets in Resources */,
-				240696F31B534E6400ED7DF8 /* Source in Resources */,
+				24427B831B669A8D007A23AF /* Source in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +283,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -347,8 +348,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FBAnnotationClusteringSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -358,8 +360,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FBAnnotationClusteringSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -378,6 +381,7 @@
 				);
 				INFOPLIST_FILE = FBAnnotationClusteringSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FBAnnotationClusteringSwift.app/FBAnnotationClusteringSwift";
 			};
@@ -393,6 +397,7 @@
 				);
 				INFOPLIST_FILE = FBAnnotationClusteringSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FBAnnotationClusteringSwift.app/FBAnnotationClusteringSwift";
 			};

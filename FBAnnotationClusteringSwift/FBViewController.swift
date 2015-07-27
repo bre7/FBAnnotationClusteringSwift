@@ -60,7 +60,7 @@ extension FBViewController : FBClusteringManagerDelegate {
 
 extension FBViewController : MKMapViewDelegate {
     
-    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool){
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool){
         
         NSOperationQueue().addOperationWithBlock({
         
@@ -78,7 +78,7 @@ extension FBViewController : MKMapViewDelegate {
 
     }
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
         
         var reuseId = ""
         

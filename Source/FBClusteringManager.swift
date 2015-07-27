@@ -137,8 +137,8 @@ public class FBClusteringManager {
             var toRemove = NSMutableSet(set: before)
             toRemove.minusSet(after as Set<NSObject>)
         
-            mapView.addAnnotations(toAdd.allObjects)
-            mapView.removeAnnotations(toRemove.allObjects)
+            mapView.addAnnotations(toAdd.allObjects as! [MKAnnotation])
+            mapView.removeAnnotations(toRemove.allObjects as! [MKAnnotation])
         }
         
     }

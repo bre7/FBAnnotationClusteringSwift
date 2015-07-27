@@ -10,13 +10,17 @@ import Foundation
 import CoreLocation
 import MapKit
 
-class FBAnnotation : NSObject {
+class FBAnnotation: NSObject, MKAnnotation {
+    var title = "Ubicación actual"
+    var coordinate: CLLocationCoordinate2D
     
-    var coordinate = CLLocationCoordinate2D(latitude: 39.208407, longitude: -76.799555)
-    var title = ""
+    init(coordinate:CLLocationCoordinate2D) {
+        self.coordinate = coordinate
+    }
     
-}
-
-extension FBAnnotation : MKAnnotation {
-    
+    override init() {
+        self.coordinate = CLLocationCoordinate2D(latitude: 39.208407, longitude: -76.799555)
+        
+        super.init()
+    }
 }
