@@ -11,7 +11,7 @@ import CoreLocation
 import MapKit
 
 class FBAnnotation: NSObject, MKAnnotation {
-    var title = "Ubicación actual"
+    var title: String? = "Ubicación actual"
     var coordinate: CLLocationCoordinate2D
     
     init(coordinate:CLLocationCoordinate2D) {

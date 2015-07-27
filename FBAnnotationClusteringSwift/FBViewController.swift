@@ -39,7 +39,7 @@ class FBViewController: UIViewController {
     
     func randomLocationsWithCount(count:Int) -> [FBAnnotation] {
         var array:[FBAnnotation] = []
-        for i in 0...count {
+        for _ in 0...count {
             let a:FBAnnotation = FBAnnotation()
             a.coordinate = CLLocationCoordinate2D(latitude: drand48() * 40 - 20, longitude: drand48() * 80 - 40 )
             array.append(a)
@@ -78,7 +78,7 @@ extension FBViewController : MKMapViewDelegate {
 
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         var reuseId = ""
         
