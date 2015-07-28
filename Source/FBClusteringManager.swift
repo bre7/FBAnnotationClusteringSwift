@@ -18,9 +18,11 @@ public class FBClusteringManager {
     var tree:FBQuadTree? = .None
     var lock:NSRecursiveLock = NSRecursiveLock()
     let cellSize: Int?
+    let userLocationAnnotationType: AnyClass
     
-    public init(clusteringCellSize: Int? = .None){
+    public init(userAnnotationType: AnyClass = MKUserLocation.self, clusteringCellSize: Int? = .None){
         cellSize = clusteringCellSize
+        userLocationAnnotationType = userAnnotationType
     }
     
     public func setAnnotations(annotations:[MKAnnotation]){
@@ -126,9 +128,9 @@ public class FBClusteringManager {
     public func displayAnnotations(annotations: [MKAnnotation], onMapView mapView:MKMapView){
         
         dispatch_async(dispatch_get_main_queue())  {
-
-            let before = NSMutableSet(array: mapView.annotations)
-            before.removeObject(mapView.userLocation)
+            let annotationsExceptUserLocation = mapView.annotations
+                .filter({ !($0.isKindOfClass(self.userLocationAnnotationType)) })
+            let before = NSSet(array: annotationsExceptUserLocation)
             let after = NSSet(array: annotations)
             let toKeep = NSMutableSet(set: before)
             toKeep.intersectSet(after as Set<NSObject>)
