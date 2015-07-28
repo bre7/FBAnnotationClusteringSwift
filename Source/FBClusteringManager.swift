@@ -45,9 +45,9 @@ public class FBClusteringManager {
     public func clusteredAnnotationsWithinMapRect(rect:MKMapRect, withZoomScale zoomScale:Double) -> [MKAnnotation]{
         let clusterCellSize = cellSize ?? FBClusteringManager.FBCellSizeForZoomScale(MKZoomScale(zoomScale))
         
-//        if delegate?.respondsToSelector("cellSizeFactorForCoordinator:") {
-//            cellSize *= delegate.cellSizeFactorForCoordinator(self)
-//        }
+        //        if delegate?.respondsToSelector("cellSizeFactorForCoordinator:") {
+        //            cellSize *= delegate.cellSizeFactorForCoordinator(self)
+        //        }
         
         let scaleFactor:Double = zoomScale / Double(clusterCellSize)
         
@@ -55,15 +55,15 @@ public class FBClusteringManager {
         let maxX:Int = Int(floor(MKMapRectGetMaxX(rect) * scaleFactor))
         let minY:Int = Int(floor(MKMapRectGetMinY(rect) * scaleFactor))
         let maxY:Int = Int(floor(MKMapRectGetMaxY(rect) * scaleFactor))
-
+        
         var clusteredAnnotations = [MKAnnotation]()
-
+        
         lock.lock()
-
+        
         for i in minX...maxX {
-
+            
             for j in minY...maxY {
-
+                
                 let mapPoint = MKMapPoint(x: Double(i)/scaleFactor, y: Double(j)/scaleFactor)
                 
                 let mapSize = MKMapSize(width: 1.0/scaleFactor, height: 1.0/scaleFactor)
@@ -104,10 +104,10 @@ public class FBClusteringManager {
                     clusteredAnnotations.append(cluster)
                 }
             }
-           
+            
         }
         
-    
+        
         lock.unlock()
         
         return clusteredAnnotations
@@ -138,7 +138,7 @@ public class FBClusteringManager {
             toAdd.minusSet(toKeep as Set<NSObject>)
             let toRemove = NSMutableSet(set: before)
             toRemove.minusSet(after as Set<NSObject>)
-        
+            
             mapView.addAnnotations(toAdd.allObjects as! [MKAnnotation])
             mapView.removeAnnotations(toRemove.allObjects as! [MKAnnotation])
         }
@@ -159,9 +159,9 @@ public class FBClusteringManager {
         let zoomLevel:Int = FBClusteringManager.FBZoomScaleToZoomLevel(zoomScale)
         
         #if DEBUG
-		println("FBCellSizeForZoomScale: \(zoomLevel)")
+            println("FBCellSizeForZoomScale: \(zoomLevel)")
         #endif
-
+        
         switch zoomLevel {
         case 12:
             return 96
